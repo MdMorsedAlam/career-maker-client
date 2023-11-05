@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { MyContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import profile from "../../../public/avatar.png";
 
 const Register = () => {
-  const { createUser } = useContext(MyContext);
+  const { createUser,googleLogin, logOut } = useContext(MyContext);
+  const navigate=useNavigate()
   const handelRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,7 +22,14 @@ const Register = () => {
           photoURL: url ? url : profile,
         })
           .then(() => {
-            alert("User Creted Succes");
+            logOut()
+              .then(() => {
+                alert("User Creted Succes");
+                navigate('/login')
+              })
+              .catch((err) => {
+                console.log(err.message);
+              });
           })
           .catch();
         console.log(res.user);
@@ -30,6 +38,15 @@ const Register = () => {
         console.log(err.message);
       });
   };
+  const handelGoogleLogin=()=>{
+   googleLogin()
+   .then(()=>{
+alert("Google Login Sluccess")
+    navigate('/')
+   }).catch(err=>{
+    console.log(err.message)
+   })
+  }
   return (
     <div className=" bg-current py-16">
       <div className="w-2/3 bg-gray-900 flex flex-col md:flex-row md:justify-between md:gap-10 md:items-center mx-auto p-4 rounded-md shadow sm:p-8 text-gray-100">
@@ -46,24 +63,21 @@ const Register = () => {
           </p>
           <div className="my-6 space-y-4">
             <button
-              aria-label="Login with Google"
-              type="button"
+              onClick={handelGoogleLogin}
               className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
             >
               <BsGoogle className="w-5 h-5 fill-current" />
               <p>Login with Google</p>
             </button>
             <button
-              aria-label="Login with GitHub"
-              role="button"
+              
               className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
             >
               <BsGithub className="w-5 h-5 fill-current" />
               <p>Login with GitHub</p>
             </button>
             <button
-              aria-label="Login with Twitter"
-              role="button"
+              
               className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri dark:border-gray-400 focus:ri"
             >
               <BsFacebook className="w-5 h-5 fill-current" />
