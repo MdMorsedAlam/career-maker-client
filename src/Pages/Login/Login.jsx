@@ -15,7 +15,7 @@ const Login = () => {
       <div className="w-2/3 bg-gray-900 flex flex-col md:flex-row justify-between gap-10 items-center mx-auto p-4 rounded-md shadow sm:p-8 text-gray-100">
 	<div className="flex-1">
   <h2 className="mb-3 text-3xl font-semibold text-center">Login To Your Account</h2>
-	<p className="text-sm text-center text-gray-400">Create A New Account ?
+	<p className="text-sm font-semibold text-center text-gray-400">Create A New Account ?
 		<Link to='/register' className="focus:underline hover:underline">Sign up here</Link>
 	</p>
 	<div className="my-6 space-y-4">
@@ -49,12 +49,12 @@ const Login = () => {
   <form onSubmit={handelLogin} className="space-y-8">
 		<div className="space-y-4">
 			<div className="space-y-2">
-				<label className="block text-sm">Email address</label>
+				<label className="block font-bold text-sm">Email address</label>
 				<input type="email" name="email" id="email" placeholder="example@gmail.com" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
 			</div>
 			<div className="space-y-2">
 				<div className="flex justify-between">
-					<label className="text-sm">Password</label>
+					<label className="text-sm font-bold">Password</label>
 					<a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</a>
 				</div>
 				<input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
