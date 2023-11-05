@@ -107,7 +107,7 @@ const Navbar = () => {
                     Dashboard
                   </NavLink>
                 </summary>
-                <ul className="flex flex-col justify-center items-center gap-2">
+                <ul className="flex flex-col justify-center items-center gap-2 z-50">
                   <li>
                     <NavLink
                       className={({ isActive }) =>
@@ -117,14 +117,32 @@ const Navbar = () => {
                       }
                       to="/addproduct"
                     >
-                      Add Product
+                      My-Services
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink>Add Product</NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
+                          : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
+                      }
+                      to="/addproduct"
+                    >
+                      Add-Services
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink>Add Product</NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
+                          : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
+                      }
+                      to="/addproduct"
+                    >
+                      My-Schedules
+                    </NavLink>
                   </li>
                 </ul>
               </details>
