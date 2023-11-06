@@ -35,7 +35,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content space-y-3 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
               <NavLink to="/">Home</NavLink>
@@ -47,7 +47,7 @@ const Navbar = () => {
             <li tabIndex={0}>
               <details>
                 <summary>Dashboard</summary>
-                <ul className="w-full">
+                <ul className="flex gap-3 mt-3 flex-col">
                   <li>
                     <NavLink>Add Product</NavLink>
                   </li>
@@ -62,8 +62,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
-          daisyUI
+        <Link to="/" className="flex justify-center items-center">
+          
+          <img className="w-16 h-12" src="logo.jpg" alt="" />
+          <p className="text-2xl font-bold text-[#425CEC]">Local Tours and Guide
+</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
