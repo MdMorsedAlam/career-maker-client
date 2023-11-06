@@ -2,12 +2,14 @@ import { useContext } from "react";
 import MaxWidth from "../../Components/MaxWidth";
 import { MyContext } from "../../Providers/AuthProvider";
 
+
 const AddServices = () => {
   const { user } = useContext(MyContext);
   const handelAddService=e=>{
    e.preventDefault()
    console.log("Hello Helo")
   }
+  
   return (
     <MaxWidth>
       <div className="min-h-screen py-10 bg-base-200">

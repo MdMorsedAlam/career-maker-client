@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import Error from "../Pages/Error/Error";
 import Services from "../Pages/Services/Services";
 import AddServices from "../Pages/Services/AddServices";
+import PrivateRoute from "./PrivateRoute";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +24,7 @@ const route = createBrowserRouter([
       },
       {
         path:'/addservices',
-        element:<AddServices/>
+        element:<PrivateRoute><AddServices/></PrivateRoute>
       },
       {
         path: "/login",

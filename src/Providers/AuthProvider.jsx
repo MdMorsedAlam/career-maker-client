@@ -39,7 +39,7 @@ const googleLogin=()=>{
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (currnUser) => {
       setUser(currnUser);
-      setLoading(true);
+      setLoading(false);
     });
     return () => {
       return unsubcribe();
