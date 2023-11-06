@@ -1,15 +1,34 @@
 import { useContext } from "react";
 import MaxWidth from "../../Components/MaxWidth";
 import { MyContext } from "../../Providers/AuthProvider";
-
+import axios from "axios";
 
 const AddServices = () => {
   const { user } = useContext(MyContext);
-  const handelAddService=e=>{
-   e.preventDefault()
-   console.log("Hello Helo")
-  }
-  
+  const handelAddService = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const sname = form.sname.value;
+    const price = form.price.value;
+    const sphoto = form.sphoto.value;
+    const des = form.des.value;
+    const area = form.area.value;
+    const name = user.displayName;
+    const email = user.email;
+    const photo = user.photoURL;
+    const addData = { name, email, photo, sname, price, sphoto, des, area };
+    axios
+      .post("http://localhost:3737/api/v1/services", addData)
+      .then((res) => {
+        if(res.data.insertedId){
+          alert("Data added Success")
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <MaxWidth>
       <div className="min-h-screen py-10 bg-base-200">
@@ -134,7 +153,10 @@ const AddServices = () => {
                 />
               </div>
             </div>
-            <button type="submit" className="btn btn-block btn-outline btn-accent">
+            <button
+              type="submit"
+              className="btn btn-block btn-outline btn-accent"
+            >
               Add Service
             </button>
           </div>

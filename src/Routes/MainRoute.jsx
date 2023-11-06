@@ -8,6 +8,7 @@ import Error from "../Pages/Error/Error";
 import Services from "../Pages/Services/Services";
 import AddServices from "../Pages/Services/AddServices";
 import PrivateRoute from "./PrivateRoute";
+import SingleData from "../Pages/SingleData/SingleData";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -23,8 +24,17 @@ const route = createBrowserRouter([
         element: <Services />,
       },
       {
-        path:'/addservices',
-        element:<PrivateRoute><AddServices/></PrivateRoute>
+        path: "/addservices",
+        element: (
+          <PrivateRoute>
+            <AddServices />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/single-services/:id",
+        element: <PrivateRoute><SingleData /></PrivateRoute>,
+        
       },
       {
         path: "/login",
