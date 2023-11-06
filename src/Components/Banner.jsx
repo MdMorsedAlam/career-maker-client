@@ -5,7 +5,7 @@ import MaxWidth from "./MaxWidth";
 
 const Banner = () => {
  return (
-  <div>
+  <div className="text-center">
    <div className="w-full h-[70vh] absolute">
 			<img className="w-full h-full object-cover" src='https://i.ibb.co/vx2vYmj/banner.jpg' />
 			</div>

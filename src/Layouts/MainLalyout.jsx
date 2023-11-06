@@ -1,18 +1,19 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import MaxWidth from "../Components/MaxWidth";
-import Banner from "../Components/Banner";
-
+import Footer from "../Components/Footer";
 
 const MainLalyout = () => {
- return (
-  <div>
-  <MaxWidth> <Navbar/></MaxWidth>
-  <Banner/>
-   <MaxWidth><Outlet/></MaxWidth>
-   
-  </div>
- );
+  return (
+    <div>
+      <MaxWidth>
+        
+        <Navbar />
+      </MaxWidth>
+      <Outlet />
+      <Footer/>
+    </div>
+  );
 };
 
 export default MainLalyout;
