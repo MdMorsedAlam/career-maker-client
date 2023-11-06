@@ -8,14 +8,14 @@ import { BsFillSearchHeartFill } from "react-icons/bs";
 const Services = () => {
   const [services, setServices] = useState();
   const [loading, setLoading] = useState(true);
-  const [inptValue, setinptValue] = useState('');
-  const [isShow,setisShow]=useState(true);
-  const [sliceNum,setSliceNum]=useState(6)
+  const [inptValue, setinptValue] = useState("");
+  const [isShow, setisShow] = useState(true);
+  const [sliceNum, setSliceNum] = useState(6);
   useEffect(() => {
     axios
       .get("http://localhost:3737/api/v1/services")
       .then((res) => {
-       setServices(res.data);
+        setServices(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -24,14 +24,15 @@ const Services = () => {
   }, []);
 
   const handelSearch = () => {
-   const filterData=services.filter(service=>service.sname===inptValue)
-   setServices(filterData);
-
+    const filterData = services.filter(
+      (service) => service.sname === inptValue
+    );
+    setServices(filterData);
   };
-const handelShow=()=>{
- setSliceNum(services.length);
- setisShow(!isShow)
-}
+  const handelShow = () => {
+    setSliceNum(services.length);
+    setisShow(!isShow);
+  };
 
   if (loading) {
     return <Loading />;
@@ -45,9 +46,8 @@ const handelShow=()=>{
             <div className="form-control">
               <div className="input-group">
                 <input
-                  onChange={e=> setinptValue(e.target.value)}
+                  onChange={(e) => setinptValue(e.target.value)}
                   type="search"
-                  
                   className="input input-accent input-bordered"
                 />
                 <button
@@ -109,11 +109,16 @@ const handelShow=()=>{
             ))}
           </div>
           <div className="flex justify-center">
-            {
-             isShow?<button onClick={handelShow} className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold">
-             See More
-           </button>:''
-            }
+            {isShow ? (
+              <button
+                onClick={handelShow}
+                className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold"
+              >
+                See More
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </MaxWidth>
