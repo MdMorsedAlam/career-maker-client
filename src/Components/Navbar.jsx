@@ -41,7 +41,7 @@ const Navbar = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/services">Services</NavLink>
             </li>
 
             <li tabIndex={0}>
@@ -49,13 +49,13 @@ const Navbar = () => {
                 <summary>Dashboard</summary>
                 <ul className="flex gap-3 mt-3 flex-col">
                   <li>
-                    <NavLink>Add Product</NavLink>
+                    <NavLink>Add-Services</NavLink>
                   </li>
                   <li>
-                    <NavLink>Add Product</NavLink>
+                    <NavLink>My-Services</NavLink>
                   </li>
                   <li>
-                    <NavLink>Add Product</NavLink>
+                    <NavLink> My-Schedules</NavLink>
                   </li>
                 </ul>
               </details>
@@ -63,10 +63,10 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="flex justify-center items-center">
-          
           <img className="w-16 h-12" src="logo.jpg" alt="" />
-          <p className="text-2xl font-bold text-[#425CEC]">Local Tours and Guide
-</p>
+          <p className="text-2xl font-bold text-[#425CEC]">
+            Local Tours and Guide
+          </p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -90,9 +90,9 @@ const Navbar = () => {
                   ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
                   : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
               }
-              to="/about"
+              to="/services"
             >
-              About
+              Services
             </NavLink>
           </li>
 

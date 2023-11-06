@@ -11,7 +11,7 @@ const Banner = () => {
 			</div>
 			<div className=" relative w-full h-[70vh] bg-gradient-to-r from-[#2a282887] to-[#0a0909d6] ">
 				<MaxWidth>
-					<div className="h-[70vh] flex justify-end items-center">
+					<div className="h-[70vh] flex justify-center md:justify-end items-center">
 				<div className="flex flex-col justify-center items-center space-y-4 text-white">
 			<h1 className="text-6xl font-bold">Local Tours <span className="text-[#425CEC]">and</span> Guide
 </h1>
