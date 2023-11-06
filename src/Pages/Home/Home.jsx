@@ -45,7 +45,7 @@ const Home = () => {
                   <p className="text-lg font-semibold">
                     Price : {service.price}
                   </p>
-                  <p className="italic font-medium">{service.des}</p>
+                  <p className="italic font-medium">{service.des.length>100?service.des.slice(0,100):service.des}</p>
 
                   <div className="flex items-center gap-5">
                     <img

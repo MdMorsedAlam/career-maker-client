@@ -14,14 +14,27 @@ const AddServices = () => {
     const des = form.des.value;
     const area = form.area.value;
     const name = user.displayName;
+    const address = form.address.value;
+    const pdes = form.pdes.value;
     const email = user.email;
     const photo = user.photoURL;
-    const addData = { name, email, photo, sname, price, sphoto, des, area };
+    const addData = {
+      name,
+      email,
+      address,
+      pdes,
+      photo,
+      sname,
+      price,
+      sphoto,
+      des,
+      area,
+    };
     axios
       .post("http://localhost:3737/api/v1/services", addData)
       .then((res) => {
-        if(res.data.insertedId){
-          alert("Data added Success")
+        if (res.data.insertedId) {
+          alert("Data added Success");
         }
       })
       .catch((err) => {
@@ -116,43 +129,31 @@ const AddServices = () => {
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-bold text-lg">
-                    Provider Name
+                    Provider Address
                   </span>
                 </label>
                 <input
                   type="text"
-                  value={user.displayName}
-                  placeholder="Provider Name"
+                  name="address"
+                  placeholder="Provider Address"
                   className="input input-bordered input-info w-full required"
                 />
               </div>
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-bold text-lg">
-                    Provider Email
-                  </span>
-                </label>
-                <input
-                  type="email"
-                  value={user.email}
-                  className="input input-bordered input-info w-full required"
-                />
-              </div>
-            </div>
-            <div className="flex items-center">
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text font-bold text-lg">
-                    Provider Photo
+                    Description
                   </span>
                 </label>
                 <input
                   type="text"
-                  value={user.photoURL}
+                  name="pdes"
+                  placeholder="Provider Description"
                   className="input input-bordered input-info w-full required"
                 />
               </div>
             </div>
+
             <button
               type="submit"
               className="btn btn-block btn-outline btn-accent"
