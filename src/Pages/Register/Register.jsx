@@ -7,8 +7,8 @@ import profile from "../../../public/avatar.png";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser,googleLogin, logOut } = useContext(MyContext);
-  const navigate=useNavigate()
+  const { createUser, googleLogin, logOut } = useContext(MyContext);
+  const navigate = useNavigate();
   const handelRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,52 +16,58 @@ const Register = () => {
     const email = form.email.value;
     const url = form.photo.value;
     const pwd = form.password.value;
-    const validpass=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+    const validpass =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
     // Minimum eight characters, at least one letter, one number and one special character:
-    if(!validpass.test(pwd)){
+    if (!validpass.test(pwd)) {
       Swal.fire({
         title: "Oppss!!",
         text: "Password will be eight characters, at least one letter, one number and one special character",
-        icon: "error"
+        icon: "error",
       });
-    }else{
+    } else {
       createUser(email, pwd)
-      .then((res) => {
-        updateProfile(res.user, {
-          displayName: name,
-          photoURL: url ? url : profile,
-        })
-          .then(() => {
-            logOut()
-              .then(() => {
-                Swal.fire({
-                  title: "Good job!",
-                  text: "User Has Been Created",
-                  icon: "success"
-                });
-                navigate('/login')
-              })
-              .catch();
+        .then((res) => {
+          updateProfile(res.user, {
+            displayName: name,
+            photoURL: url ? url : profile,
           })
-          .catch();
-        
+            .then(() => {
+              logOut()
+                .then(() => {
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User Has Been Created",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+
+                  navigate("/login");
+                })
+                .catch();
+            })
+            .catch();
+        })
+        .catch();
+    }
+  };
+  const handelGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Loged In By Google Success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        navigate("/");
       })
       .catch();
-    }
-    
   };
-  const handelGoogleLogin=()=>{
-   googleLogin()
-   .then(()=>{
-    Swal.fire({
-      title: "Good job!",
-      text: "Loged In By Google Success",
-      icon: "success"
-    });
-    navigate('/')
-   }).catch()
-  }
   return (
     <div className=" bg-current py-16">
       <div className="w-2/3 bg-gray-900 flex flex-col md:flex-row md:justify-between md:gap-10 md:items-center mx-auto p-4 rounded-md shadow sm:p-8 text-gray-100">
@@ -84,17 +90,11 @@ const Register = () => {
               <BsGoogle className="w-5 h-5 fill-current" />
               <p>Login with Google</p>
             </button>
-            <button
-              
-              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
-            >
+            <button className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri">
               <BsGithub className="w-5 h-5 fill-current" />
               <p>Login with GitHub</p>
             </button>
-            <button
-              
-              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri dark:border-gray-400 focus:ri"
-            >
+            <button className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri dark:border-gray-400 focus:ri">
               <BsFacebook className="w-5 h-5 fill-current" />
               <p>Login with Facebook</p>
             </button>

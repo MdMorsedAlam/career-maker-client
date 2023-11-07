@@ -10,6 +10,7 @@ import AddServices from "../Pages/Services/AddServices";
 import PrivateRoute from "./PrivateRoute";
 import SingleData from "../Pages/SingleData/SingleData";
 import ManageServices from "../Pages/Services/ManageServices";
+import UpdateService from "../Pages/Services/UpdateService";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -34,12 +35,21 @@ const route = createBrowserRouter([
       },
       {
         path: "/single-services/:id",
-        element: <PrivateRoute><SingleData /></PrivateRoute>,
-        
+        element: (
+          <PrivateRoute>
+            <SingleData />
+          </PrivateRoute>
+        ),
       },
       {
-        path:'my-services',
-        element:<ManageServices/>
+        path: "/my-services",
+        element: <ManageServices />,
+      },
+      {
+        path: "/update/:id",
+        element: <UpdateService />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3737/api/v1/services/${params.id}`),
       },
       {
         path: "/login",

@@ -10,9 +10,11 @@ const Navbar = () => {
     logOut()
       .then(() => {
         Swal.fire({
-          title: "Good job!",
-          text: "Log Out Success",
+          position: "top-end",
           icon: "success",
+          title: "Log Out Success",
+          showConfirmButton: false,
+          timer: 1500,
         });
         navigate("/");
       })
@@ -57,7 +59,7 @@ const Navbar = () => {
                     <NavLink to="/addservices">Add-Services</NavLink>
                   </li>
                   <li>
-                    <NavLink to='/my-services'>My-Services</NavLink>
+                    <NavLink to="/my-services">My-Services</NavLink>
                   </li>
                   <li>
                     <NavLink> My-Schedules</NavLink>

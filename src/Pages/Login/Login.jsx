@@ -15,9 +15,11 @@ const Login = () => {
     loginUser(email, pwd)
       .then(() => {
         Swal.fire({
-          title: "Good job!",
-          text: "Successfully Loged In",
+          position: "top-end",
           icon: "success",
+          title: "Successfully Loged In",
+          showConfirmButton: false,
+          timer: 1500
         });
         navigate("/");
       })

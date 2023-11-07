@@ -4,6 +4,7 @@ import axios from "axios";
 import { MyContext } from "../../Providers/AuthProvider";
 import Loading from "../../Components/Loading";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ManageServices = () => {
   const { user } = useContext(MyContext);
@@ -23,27 +24,43 @@ const ManageServices = () => {
     return <Loading />;
   }
 
-  const handelDelete=id=>{
-   axios
-   .get(`http://localhost:3737/api/v1/my-services/${id}`)
-   .then((res) => {
-    if(res.data.deletedCount>0){
-     Swal.fire({
-      title: "Good job!",
-      text: "Data Has Been Deleted",
-      icon: "success",
+  const handelDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Want To Delete Your Service",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .get(`http://localhost:3737/api/v1/my-services/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Service Has Been Deleted.",
+                icon: "success",
+              });
+
+              const remainingData = services.filter(
+                (service) => service._id !== id
+              );
+              setServices(remainingData);
+            } else {
+              Swal.fire({
+                title: "Opps!!",
+                text: "Something Went Wrong Please Try Again",
+                icon: "error",
+              });
+            }
+          })
+          .catch();
+      }
     });
-    }else{
-     Swal.fire({
-      title: "Opps!!",
-      text: "Something Went Wrong Please Try Again",
-      icon: "error",
-    });
-    }
-     
-   })
-   .catch();
-  }
+  };
   return (
     <MaxWidth>
       <div>
@@ -76,10 +93,18 @@ const ManageServices = () => {
                   <td className="text-lg font-semibold">{service.sname}</td>
                   <td className="text-lg font-semibold">{service.price}</td>
                   <th>
-                    <button onClick={()=>handelDelete(service._id)} className="btn btn-warning mr-2 uppercase">
+                    <button
+                      onClick={() => handelDelete(service._id)}
+                      className="btn btn-warning mr-2 uppercase"
+                    >
                       X
                     </button>
-                    <button className="btn btn-accent">Update</button>
+                    <Link
+                      to={`/update/${service._id}`}
+                      className="btn btn-accent"
+                    >
+                      Update
+                    </Link>
                   </th>
                 </tr>
               ))}

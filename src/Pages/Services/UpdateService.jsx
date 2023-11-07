@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import MaxWidth from "../../Components/MaxWidth";
-import { MyContext } from "../../Providers/AuthProvider";
 import axios from "axios";
+import MaxWidth from "../../Components/MaxWidth";
 import Swal from "sweetalert2";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
-const AddServices = () => {
-  const { user } = useContext(MyContext);
-  const handelAddService = (e) => {
+const UpdateService = () => {
+  const loadData = useLoaderData();
+  const navigate = useNavigate();
+  const handelUpdateService = (e) => {
     e.preventDefault();
     const form = e.target;
     const sname = form.sname.value;
@@ -14,17 +14,11 @@ const AddServices = () => {
     const sphoto = form.sphoto.value;
     const des = form.des.value;
     const area = form.area.value;
-    const name = user.displayName;
     const address = form.address.value;
     const pdes = form.pdes.value;
-    const email = user.email;
-    const photo = user.photoURL;
-    const addData = {
-      name,
-      email,
+    const updateData = {
       address,
       pdes,
-      photo,
       sname,
       price,
       sphoto,
@@ -32,24 +26,33 @@ const AddServices = () => {
       area,
     };
     axios
-      .post("http://localhost:3737/api/v1/services", addData)
+      .patch(
+        `http://localhost:3737/api/v1/update-service/${loadData._id}`,
+        updateData
+      )
       .then((res) => {
-        if (res.data.insertedId) {
+        if (res.data.modifiedCount > 0) {
           Swal.fire({
             title: "Good job!",
-            text: "New Service Added Successfully",
+            text: "Service Has Been Updated",
             icon: "success",
+          });
+          navigate("/my-services");
+        } else {
+          Swal.fire({
+            title: "Oppss!",
+            text: "You Didn't Update Anyting ",
+            icon: "error",
           });
         }
       })
       .catch();
   };
-
   return (
     <MaxWidth>
       <div className="min-h-screen py-10 bg-base-200">
-        <h1 className="text-6xl text-center font-bold">Add Service</h1>
-        <form onSubmit={handelAddService}>
+        <h1 className="text-6xl text-center font-bold">Update Service</h1>
+        <form onSubmit={handelUpdateService}>
           <div className="w-2/3 mx-auto space-y-5">
             <h1 className="text-center font-semibold text-accent text-2xl mt-4">
               Service Info
@@ -63,7 +66,7 @@ const AddServices = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="Service Name"
+                  defaultValue={loadData.sname}
                   name="sname"
                   className="input input-bordered input-info w-full required"
                 />
@@ -77,7 +80,7 @@ const AddServices = () => {
                 <input
                   type="number"
                   name="price"
-                  placeholder="Service Price"
+                  defaultValue={loadData.price}
                   className="input input-bordered input-info w-full required"
                 />
               </div>
@@ -91,7 +94,7 @@ const AddServices = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="Service Photo"
+                  defaultValue={loadData.sphoto}
                   name="sphoto"
                   className="input input-bordered input-info w-full required"
                 />
@@ -105,7 +108,7 @@ const AddServices = () => {
                 <input
                   type="text"
                   name="des"
-                  placeholder="Description"
+                  defaultValue={loadData.des}
                   className="input input-bordered input-info w-full required"
                 />
               </div>
@@ -120,7 +123,7 @@ const AddServices = () => {
                 <input
                   type="text"
                   name="area"
-                  placeholder="Service Area"
+                  defaultValue={loadData.area}
                   className="input input-bordered input-info w-full required"
                 />
               </div>
@@ -138,7 +141,7 @@ const AddServices = () => {
                 <input
                   type="text"
                   name="address"
-                  placeholder="Provider Address"
+                  defaultValue={loadData.address}
                   className="input input-bordered input-info w-full required"
                 />
               </div>
@@ -151,7 +154,7 @@ const AddServices = () => {
                 <input
                   type="text"
                   name="pdes"
-                  placeholder="Provider Description"
+                  defaultValue={loadData.pdes}
                   className="input input-bordered input-info w-full required"
                 />
               </div>
@@ -161,7 +164,7 @@ const AddServices = () => {
               type="submit"
               className="btn btn-block btn-outline btn-accent"
             >
-              Add Service
+              Update Service
             </button>
           </div>
         </form>
@@ -170,4 +173,4 @@ const AddServices = () => {
   );
 };
 
-export default AddServices;
+export default UpdateService;
