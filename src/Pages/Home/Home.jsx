@@ -68,7 +68,7 @@ const Home = () => {
             ))}
           </div>
           <div className="flex justify-center">
-          <Link to='/services' className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold">See All</Link>
+          <Link to='/services' className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold uppercase">Show All</Link>
           </div>
         </div>
       </MaxWidth>

@@ -4,6 +4,7 @@ import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { MyContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import profile from "../../../public/avatar.png";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser,googleLogin, logOut } = useContext(MyContext);
@@ -15,7 +16,17 @@ const Register = () => {
     const email = form.email.value;
     const url = form.photo.value;
     const pwd = form.password.value;
-    createUser(email, pwd)
+    const validpass=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+
+    // Minimum eight characters, at least one letter, one number and one special character:
+    if(!validpass.test(pwd)){
+      Swal.fire({
+        title: "Oppss!!",
+        text: "Password will be eight characters, at least one letter, one number and one special character",
+        icon: "error"
+      });
+    }else{
+      createUser(email, pwd)
       .then((res) => {
         updateProfile(res.user, {
           displayName: name,
@@ -24,28 +35,32 @@ const Register = () => {
           .then(() => {
             logOut()
               .then(() => {
-                alert("User Creted Succes");
+                Swal.fire({
+                  title: "Good job!",
+                  text: "User Has Been Created",
+                  icon: "success"
+                });
                 navigate('/login')
               })
-              .catch((err) => {
-                console.log(err.message);
-              });
+              .catch();
           })
           .catch();
-        console.log(res.user);
+        
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      .catch();
+    }
+    
   };
   const handelGoogleLogin=()=>{
    googleLogin()
    .then(()=>{
-alert("Google Login Sluccess")
+    Swal.fire({
+      title: "Good job!",
+      text: "Loged In By Google Success",
+      icon: "success"
+    });
     navigate('/')
-   }).catch(err=>{
-    console.log(err.message)
-   })
+   }).catch()
   }
   return (
     <div className=" bg-current py-16">

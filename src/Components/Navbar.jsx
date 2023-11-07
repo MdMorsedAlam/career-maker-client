@@ -1,20 +1,22 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MyContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-
   const { user, logOut } = useContext(MyContext);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const handelLogOut = () => {
     logOut()
       .then(() => {
-        alert("Log Out Success");
-        navigate('/')
+        Swal.fire({
+          title: "Good job!",
+          text: "Log Out Success",
+          icon: "success",
+        });
+        navigate("/");
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      .catch();
   };
   return (
     <div className="navbar bg-base-100 shadow-lg">
@@ -52,11 +54,10 @@ const Navbar = () => {
                 <summary>Dashboard</summary>
                 <ul className="flex gap-3 mt-3 flex-col">
                   <li>
-                    
-                    <NavLink to='/addservices'>Add-Services</NavLink>
+                    <NavLink to="/addservices">Add-Services</NavLink>
                   </li>
                   <li>
-                  <NavLink>My-Services</NavLink>
+                    <NavLink>My-Services</NavLink>
                   </li>
                   <li>
                     <NavLink> My-Schedules</NavLink>
@@ -67,10 +68,10 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="flex justify-center items-center">
-          
           <img className="w-16 hidden md:block h-12" src="logo.jpg" alt="" />
-          <p className="md:text-2xl text-md font-bold text-[#425CEC]">Local Tours and Guide
-</p>
+          <p className="md:text-2xl text-md font-bold text-[#425CEC]">
+            Local Tours and Guide
+          </p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -122,7 +123,9 @@ const Navbar = () => {
                           ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
                           : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
                       }
-                      to='/addservices'>Add-Services
+                      to="/addservices"
+                    >
+                      Add-Services
                     </NavLink>
                   </li>
                   <li>

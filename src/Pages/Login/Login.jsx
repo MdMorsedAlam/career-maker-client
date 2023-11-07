@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { MyContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(MyContext);
@@ -13,18 +14,30 @@ const Login = () => {
     const pwd = form.password.value;
     loginUser(email, pwd)
       .then(() => {
-        alert("Login Success");
+        Swal.fire({
+          title: "Good job!",
+          text: "Successfully Loged In",
+          icon: "success",
+        });
         navigate("/");
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch(() => {
+        Swal.fire({
+          title: "Opps!!",
+          text: "Invalid Email Or Password",
+          icon: "error",
+        });
       });
     form.reset();
   };
   const handelGoogleLogin = () => {
     googleLogin()
       .then(() => {
-        alert("Google Login Sluccess");
+        Swal.fire({
+          title: "Good job!",
+          text: "Loged In By Google Success",
+          icon: "success",
+        });
         navigate("/");
       })
       .catch((err) => {
