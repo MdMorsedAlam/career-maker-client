@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import SingleData from "../Pages/SingleData/SingleData";
 import ManageServices from "../Pages/Services/ManageServices";
 import UpdateService from "../Pages/Services/UpdateService";
+import MySchedules from "../Pages/MySchedules/MySchedules";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +45,10 @@ const route = createBrowserRouter([
       {
         path: "/my-services",
         element: <ManageServices />,
+      },
+      {
+        path:'/schedules',
+        element:<MySchedules/>,
       },
       {
         path: "/update/:id",

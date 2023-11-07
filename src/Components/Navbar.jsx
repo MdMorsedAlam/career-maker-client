@@ -62,7 +62,7 @@ const Navbar = () => {
                     <NavLink to="/my-services">My-Services</NavLink>
                   </li>
                   <li>
-                    <NavLink> My-Schedules</NavLink>
+                    <NavLink to="/schedules"> My-Schedules</NavLink>
                   </li>
                 </ul>
               </details>
@@ -149,7 +149,7 @@ const Navbar = () => {
                           ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
                           : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
                       }
-                      to="/addproduct"
+                      to="/schedules"
                     >
                       My-Schedules
                     </NavLink>
