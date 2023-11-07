@@ -57,7 +57,7 @@ const Navbar = () => {
                     <NavLink to="/addservices">Add-Services</NavLink>
                   </li>
                   <li>
-                    <NavLink>My-Services</NavLink>
+                    <NavLink to='/my-services'>My-Services</NavLink>
                   </li>
                   <li>
                     <NavLink> My-Schedules</NavLink>
@@ -135,7 +135,7 @@ const Navbar = () => {
                           ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
                           : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
                       }
-                      to="/addproduct"
+                      to="/my-services"
                     >
                       My-Services
                     </NavLink>

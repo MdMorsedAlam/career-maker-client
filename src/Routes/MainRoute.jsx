@@ -9,6 +9,7 @@ import Services from "../Pages/Services/Services";
 import AddServices from "../Pages/Services/AddServices";
 import PrivateRoute from "./PrivateRoute";
 import SingleData from "../Pages/SingleData/SingleData";
+import ManageServices from "../Pages/Services/ManageServices";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ const route = createBrowserRouter([
         path: "/single-services/:id",
         element: <PrivateRoute><SingleData /></PrivateRoute>,
         
+      },
+      {
+        path:'my-services',
+        element:<ManageServices/>
       },
       {
         path: "/login",
