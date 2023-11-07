@@ -50,7 +50,13 @@ const Register = () => {
             })
             .catch();
         })
-        .catch();
+        .catch(()=>{
+          Swal.fire({
+            title: "Opps!",
+            text: "Already Created Account By This Email",
+            icon: "error",
+          });
+        });
     }
   };
   const handelGoogleLogin = () => {

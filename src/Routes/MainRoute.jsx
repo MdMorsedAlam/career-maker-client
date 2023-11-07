@@ -12,6 +12,7 @@ import SingleData from "../Pages/SingleData/SingleData";
 import ManageServices from "../Pages/Services/ManageServices";
 import UpdateService from "../Pages/Services/UpdateService";
 import MySchedules from "../Pages/MySchedules/MySchedules";
+import MyBookError from "../Pages/MySchedules/MyBookError";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +50,7 @@ const route = createBrowserRouter([
       {
         path:'/schedules',
         element:<MySchedules/>,
+        errorElement:<MyBookError/>
       },
       {
         path: "/update/:id",
