@@ -12,13 +12,12 @@ const ClientSays = () => {
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-[#425cecbd] text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Voluptatibus quibusdam, eligendi exercitationem molestias possimus
-              facere.
+              
+Your Local Tours and Guide Service was exceptional. The knowledgeable and friendly guides made our tour a memorable experience, offering deep insights and unique local perspectives. Highly recommended for all!
             </p>
             <FaQuoteRight className="text-[#425cecbd] text-2xl float-right" />
           </div>
-          <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-accent dark:text-gray-900">
+          <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-accent :text-gray-900">
             <img
               src={avatar}
               alt={avatar}
@@ -32,9 +31,7 @@ const ClientSays = () => {
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-accent text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Voluptatibus quibusdam, eligendi exercitationem molestias possimus
-              facere.
+            Your Local Tours and Guide Service provided an exceptional experience. The knowledgeable guides, captivating tours, and personalized approach made our journey unforgettable. Thank you for showcasing our city's beauty!
             </p>
             <FaQuoteRight className="text-accent text-2xl float-right" />
           </div>
@@ -52,9 +49,7 @@ const ClientSays = () => {
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-accent text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Voluptatibus quibusdam, eligendi exercitationem molestias possimus
-              facere.
+            Your Local Tours and Guide Service surpassed our expectations. The tours were both educational and fun, thanks to the passionate guides who shared fascinating stories about our city. A must-try experience!
             </p>
             <FaQuoteRight className="text-accent text-2xl float-right" />
           </div>
@@ -72,9 +67,7 @@ const ClientSays = () => {
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-[#425cecbd] text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Voluptatibus quibusdam, eligendi exercitationem molestias possimus
-              facere.
+            Choosing your Local Tours and Guide Service was the best decision. The tours were immersive, the guides knowledgeable, and the experience unforgettable. You have truly set the gold standard for local exploration!
             </p>
             <FaQuoteRight className="text-[#425cecbd] text-2xl float-right" />
           </div>

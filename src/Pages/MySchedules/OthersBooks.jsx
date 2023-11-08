@@ -8,6 +8,7 @@ const OthersBooks = () => {
   const { user } = useContext(MyContext);
   const [loading, setloading] = useState(true);
   const [othersBooked, setothersBooked] = useState();
+  const [svalue,setSvalue]=useState()
   useEffect(() => {
     axios
       .get(
@@ -30,11 +31,12 @@ const OthersBooks = () => {
   if (othersBooked?.length == 0) {
     return <OthersBookError />;
   }
-
-  const handelSubmit = (e) => {
-    e.preventDefault();
-    const sValue = e.target.selectValue.value;
-    console.log(sValue);
+const handelChange=e=>{
+  setSvalue(e.target.value)
+}
+  const handelSubmit = (id) => {
+    const findData =othersBooked.find(book=>book._id===id)
+    console.log(findData);
   };
 
   return (
@@ -71,19 +73,19 @@ const OthersBooks = () => {
                 <td className="text-lg font-semibold">{book.uaddress}</td>
                 <td className="text-lg font-semibold">$ {book.sprice}</td>
                 <td className="text-lg font-semibold">
-                  <form onSubmit={handelSubmit}>
+                  
                     <select
-                      name="selectValue"
+                      onChange={handelChange}
                       className="select select-accent max-w-xs mr-2"
                     >
                       <option value="Pending">Pending</option>
                       <option value="In Progress">In Progress</option>
                       <option value="Completed">Completed</option>
                     </select>
-                    <button type="submit" className="btn btn-accent">
+                    <button onClick={()=>handelSubmit(book._id)} type="submit" className="btn btn-accent">
                       Update
                     </button>
-                  </form>
+                 
                 </td>
               </tr>
             ))}
