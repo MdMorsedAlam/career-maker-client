@@ -11,6 +11,7 @@ const Services = () => {
   const [inptValue, setinptValue] = useState("");
   const [isShow, setisShow] = useState(true);
   const [sliceNum, setSliceNum] = useState(6);
+  const [noData, setNoData] = useState(false);
   useEffect(() => {
     axios
       .get("https://career-maker-server.vercel.app/api/v1/services")
@@ -28,6 +29,10 @@ const Services = () => {
     const filterData = services.filter(
       (service) => service.sname === inptValue
     );
+    if (filterData?.length == 0) {
+      setNoData(true);
+    }
+
     setServices(filterData);
   };
   const handelShow = () => {
@@ -38,6 +43,7 @@ const Services = () => {
   if (loading) {
     return <Loading />;
   }
+
   return (
     <div>
       <MaxWidth>
@@ -122,6 +128,12 @@ const Services = () => {
             )}
           </div>
         </div>
+        {noData && (
+          <h1 className="text-4xl mb-20 text-red-500 font-extrabold text-center">
+            Does Not Match Data!!
+            <br /> Please Try Again Or Relode This Page
+          </h1>
+        )}
       </MaxWidth>
     </div>
   );

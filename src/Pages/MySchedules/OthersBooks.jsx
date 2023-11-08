@@ -35,7 +35,7 @@ const OthersBooks = () => {
   const handelSubmit = (id) => {
     const status = { status: svalue };
     axios
-      .patch(`http://localhost:3737/api/v1/update-status/${id}`, status)
+      .patch(`https://career-maker-server.vercel.app/api/v1/update-status/${id}`, status)
       .then((res) => {
         if (res.status === 200) {
           const remaining = othersBooked.filter((data) => data._id !== id);
@@ -95,7 +95,7 @@ const OthersBooks = () => {
                   <button
                     onClick={() => handelSubmit(book._id)}
                     type="submit"
-                    className="btn btn-accent"
+                    className="btn btn-accent text-white"
                   >
                     Update
                   </button>
