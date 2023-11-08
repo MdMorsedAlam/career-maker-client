@@ -122,6 +122,7 @@ const Register = () => {
                   type="text"
                   name="name"
                   placeholder="Enter Your Full Name"
+                  required
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
                 />
               </div>
@@ -131,6 +132,7 @@ const Register = () => {
                   type="email"
                   name="email"
                   id="email"
+                  required
                   placeholder="example@gmail.com"
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
                 />
@@ -146,6 +148,7 @@ const Register = () => {
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between">
+                  
                   <label className="text-sm font-bold">Password</label>
                   <a
                     rel="noopener noreferrer"
@@ -159,6 +162,7 @@ const Register = () => {
                   type="password"
                   name="password"
                   id="password"
+                  required
                   placeholder="********"
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
                 />

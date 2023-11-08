@@ -94,6 +94,7 @@ const Login = () => {
                   name="email"
                   id="email"
                   placeholder="example@gmail.com"
+                  required
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
                 />
               </div>
@@ -112,6 +113,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   id="password"
+                  required
                   placeholder="********"
                   className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400"
                 />

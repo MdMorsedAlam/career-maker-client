@@ -15,10 +15,10 @@ const Banner = () => {
         <MaxWidth>
           <div className="h-[450px] flex justify-center md:justify-end items-center">
             <div className="flex flex-col justify-center items-center space-y-4 text-white">
-              <h1 className="text-6xl font-bold">
+              <h1 className="md:text-6xl text-4xl font-bold">
                 Local Tours <span className="text-[#425CEC]">and</span> Guide
               </h1>
-              <p className="text-xl font-semibold italic text-[#ddd]">
+              <p className="md:text-xl font-semibold italic text-[#ddd]">
                 Local tours and guides offer immersive experiences,
                 <br /> combining culture and history with exploration. <br />{" "}
                 Knowledgeable guides lead travelers through destinations, <br />{" "}
