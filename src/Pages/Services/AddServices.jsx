@@ -65,7 +65,8 @@ const AddServices = () => {
                   type="text"
                   placeholder="Service Name"
                   name="sname"
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full"
                 />
               </div>
               <div className="form-control w-full">
@@ -78,7 +79,8 @@ const AddServices = () => {
                   type="number"
                   name="price"
                   placeholder="Service Price"
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full"
                 />
               </div>
             </div>
@@ -93,7 +95,8 @@ const AddServices = () => {
                   type="text"
                   placeholder="Service Photo"
                   name="sphoto"
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full"
                 />
               </div>
               <div className="form-control w-full">
@@ -105,8 +108,9 @@ const AddServices = () => {
                 <input
                   type="text"
                   name="des"
+                  required
                   placeholder="Description"
-                  className="input input-bordered input-info w-full required"
+                  className="input input-bordered input-info w-full"
                 />
               </div>
             </div>
@@ -139,7 +143,8 @@ const AddServices = () => {
                   type="text"
                   name="address"
                   placeholder="Provider Address"
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full "
                 />
               </div>
               <div className="form-control w-full">
@@ -151,8 +156,9 @@ const AddServices = () => {
                 <input
                   type="text"
                   name="pdes"
+                  required
                   placeholder="Provider Description"
-                  className="input input-bordered input-info w-full required"
+                  className="input input-bordered input-info w-full"
                 />
               </div>
             </div>

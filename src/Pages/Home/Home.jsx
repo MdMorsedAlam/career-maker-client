@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Loading from "../../Components/Loading";
 import Team from "./Team";
 import ContactUs from "./ContactUs";
+import ClientSays from "./ClientSays";
 
 const Home = () => {
   const [services, setServices] = useState();
@@ -87,6 +88,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        <ClientSays/>
         <Team />
         <ContactUs />
       </MaxWidth>

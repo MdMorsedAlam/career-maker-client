@@ -45,16 +45,16 @@ const route = createBrowserRouter([
       },
       {
         path: "/my-services",
-        element: <ManageServices />,
+        element: <PrivateRoute><ManageServices /></PrivateRoute>,
       },
       {
         path: "/schedules",
-        element: <MySchedules />,
+        element: <PrivateRoute><MySchedules /></PrivateRoute>,
         errorElement: <MyBookError />,
       },
       {
         path: "/update/:id",
-        element: <UpdateService />,
+        element: <PrivateRoute><UpdateService /></PrivateRoute>,
         loader: ({ params }) =>
           fetch(
             `https://career-maker-server.vercel.app/api/v1/services/${params.id}`

@@ -211,6 +211,7 @@ const SingleData = () => {
                         <input
                           type="text"
                           name="address"
+                          required
                           placeholder="Enter Your Address"
                           className="input input-bordered input-info w-full required"
                         />

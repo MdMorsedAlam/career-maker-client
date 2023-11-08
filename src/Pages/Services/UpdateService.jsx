@@ -97,7 +97,8 @@ const UpdateService = () => {
                   type="text"
                   defaultValue={loadData.sphoto}
                   name="sphoto"
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full"
                 />
               </div>
               <div className="form-control w-full">
@@ -110,7 +111,8 @@ const UpdateService = () => {
                   type="text"
                   name="des"
                   defaultValue={loadData.des}
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full"
                 />
               </div>
             </div>
@@ -125,7 +127,8 @@ const UpdateService = () => {
                   type="text"
                   name="area"
                   defaultValue={loadData.area}
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full"
                 />
               </div>
             </div>
@@ -143,7 +146,8 @@ const UpdateService = () => {
                   type="text"
                   name="address"
                   defaultValue={loadData.address}
-                  className="input input-bordered input-info w-full required"
+                  required
+                  className="input input-bordered input-info w-full "
                 />
               </div>
               <div className="form-control w-full">
@@ -155,8 +159,9 @@ const UpdateService = () => {
                 <input
                   type="text"
                   name="pdes"
+                  required
                   defaultValue={loadData.pdes}
-                  className="input input-bordered input-info w-full required"
+                  className="input input-bordered input-info w-full"
                 />
               </div>
             </div>
