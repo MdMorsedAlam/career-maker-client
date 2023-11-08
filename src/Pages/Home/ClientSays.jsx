@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import avatar from "../../assets/avatar.png";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 

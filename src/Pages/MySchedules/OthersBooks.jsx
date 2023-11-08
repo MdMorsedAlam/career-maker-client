@@ -8,7 +8,7 @@ const OthersBooks = () => {
   const { user } = useContext(MyContext);
   const [loading, setloading] = useState(true);
   const [othersBooked, setothersBooked] = useState();
-  const [svalue,setSvalue]=useState()
+  const [svalue, setSvalue] = useState();
   useEffect(() => {
     axios
       .get(
@@ -21,9 +21,7 @@ const OthersBooks = () => {
         setothersBooked(res.data);
         setloading(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch();
   }, [user]);
   if (loading) {
     return <Loading />;
@@ -31,12 +29,23 @@ const OthersBooks = () => {
   if (othersBooked?.length == 0) {
     return <OthersBookError />;
   }
-const handelChange=e=>{
-  setSvalue(e.target.value)
-}
+  const handelChange = (e) => {
+    setSvalue(e.target.value);
+  };
   const handelSubmit = (id) => {
-    const findData =othersBooked.find(book=>book._id===id)
-    console.log(findData);
+    const status = { status: svalue };
+    axios
+      .patch(`http://localhost:3737/api/v1/update-status/${id}`, status)
+      .then((res) => {
+        if (res.status === 200) {
+          const remaining = othersBooked.filter((data) => data._id !== id);
+          const update = othersBooked.find((data) => data._id === id);
+
+          const newData = [update, ...remaining];
+          setothersBooked(newData);
+        }
+      })
+      .catch();
   };
 
   return (
@@ -73,19 +82,23 @@ const handelChange=e=>{
                 <td className="text-lg font-semibold">{book.uaddress}</td>
                 <td className="text-lg font-semibold">$ {book.sprice}</td>
                 <td className="text-lg font-semibold">
-                  
-                    <select
-                      onChange={handelChange}
-                      className="select select-accent max-w-xs mr-2"
-                    >
-                      <option value="Pending">Pending</option>
-                      <option value="In Progress">In Progress</option>
-                      <option value="Completed">Completed</option>
-                    </select>
-                    <button onClick={()=>handelSubmit(book._id)} type="submit" className="btn btn-accent">
-                      Update
-                    </button>
-                 
+                  <select
+                    onChange={handelChange}
+                    className="select select-accent max-w-xs mr-2"
+                  >
+                    <option value={book?.status ? book.status : "Pending"}>
+                      {book?.status ? book.status : "Pending"}
+                    </option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                  <button
+                    onClick={() => handelSubmit(book._id)}
+                    type="submit"
+                    className="btn btn-accent"
+                  >
+                    Update
+                  </button>
                 </td>
               </tr>
             ))}
