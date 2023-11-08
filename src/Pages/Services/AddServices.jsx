@@ -32,7 +32,7 @@ const AddServices = () => {
       area,
     };
     axios
-      .post("http://localhost:3737/api/v1/services", addData)
+      .post("https://career-maker-server.vercel.app/api/v1/services", addData)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

@@ -3,6 +3,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MyContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import logo from '../assets/logo.jpg'
+import MaxWidth from "./MaxWidth";
+import avatar from '../assets/avatar.png'
 
 const Navbar = () => {
   const { user, logOut } = useContext(MyContext);
@@ -22,7 +24,9 @@ const Navbar = () => {
       .catch();
   };
   return (
-    <div className="navbar bg-base-100 shadow-lg">
+    <div className="bg-base-100">
+      <MaxWidth>
+      <div className="navbar">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -46,10 +50,10 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content space-y-3 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink className="font-bold" to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/services">Services</NavLink>
+              <NavLink className="font-bold" to="/services">Services</NavLink>
             </li>
 
             {user && (
@@ -58,14 +62,14 @@ const Navbar = () => {
                   <summary>Dashboard</summary>
                   <ul className="flex gap-3 mt-3 flex-col">
                     <li>
-                      <NavLink to="/addservices">Add-Services</NavLink>
+                      <NavLink className="font-bold" to="/addservices">Add-Services</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/my-services">My-Services</NavLink>
+                      <NavLink className="font-bold" to="/my-services">My-Services</NavLink>
                     </li>
 
                     <li>
-                      <NavLink to="/schedules"> My-Schedules</NavLink>
+                      <NavLink className="font-bold" to="/schedules"> My-Schedules</NavLink>
                     </li>
                   </ul>
                 </details>
@@ -84,11 +88,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 flex justify-between items-center gap-5">
           <li>
             <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
-                  : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
-              }
+             className="font-bold"
               to="/"
             >
               Home
@@ -96,11 +96,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
-                  : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
-              }
+             className="font-bold"
               to="/services"
             >
               Services
@@ -112,11 +108,7 @@ const Navbar = () => {
               <details>
                 <summary>
                   <NavLink
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
-                        : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
-                    }
+                    className="font-bold"
                   >
                     Dashboard
                   </NavLink>
@@ -124,11 +116,7 @@ const Navbar = () => {
                 <ul className="flex flex-col justify-center items-center gap-2 z-50">
                   <li>
                     <NavLink
-                      className={({ isActive }) =>
-                        isActive
-                          ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
-                          : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
-                      }
+                    className="font-bold"
                       to="/addservices"
                     >
                       Add-Services
@@ -136,11 +124,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <NavLink
-                      className={({ isActive }) =>
-                        isActive
-                          ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
-                          : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
-                      }
+                    className="font-bold"
                       to="/my-services"
                     >
                       My-Services
@@ -148,11 +132,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <NavLink
-                      className={({ isActive }) =>
-                        isActive
-                          ? "text-white font-bold bg-gray-800 py-2 px-3 rounded-md"
-                          : "text-black font-bold bg-gray-300 py-2 px-3 rounded-md"
-                      }
+                    className="font-bold"
                       to="/schedules"
                     >
                       My-Schedules
@@ -169,7 +149,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={user.photoURL} />
+                <img src={user?.photoURL?user?.photoURL:avatar} />
               </div>
             </label>
             <ul
@@ -203,6 +183,8 @@ const Navbar = () => {
           user?<button className="btn" onClick={handelLogOut}>Log Out</button>:<NavLink to='/login'>Log in</NavLink>
         } */}
       </div>
+    </div>
+      </MaxWidth>
     </div>
   );
 };

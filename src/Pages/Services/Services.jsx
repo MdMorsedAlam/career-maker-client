@@ -13,7 +13,7 @@ const Services = () => {
   const [sliceNum, setSliceNum] = useState(6);
   useEffect(() => {
     axios
-      .get("http://localhost:3737/api/v1/services")
+      .get("https://career-maker-server.vercel.app/api/v1/services")
       .then((res) => {
         setServices(res.data);
         setLoading(false);
@@ -110,7 +110,7 @@ const Services = () => {
             ))}
           </div>
           <div className="flex justify-center">
-            {isShow &&services?.length>6 ? (
+            {isShow && services?.length > 6 ? (
               <button
                 onClick={handelShow}
                 className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold"

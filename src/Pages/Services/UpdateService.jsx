@@ -27,7 +27,7 @@ const UpdateService = () => {
     };
     axios
       .patch(
-        `http://localhost:3737/api/v1/update-service/${loadData._id}`,
+        `https://career-maker-server.vercel.app/api/v1/update-service/${loadData._id}`,
         updateData
       )
       .then((res) => {

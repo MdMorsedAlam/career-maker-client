@@ -15,7 +15,7 @@ const SingleData = () => {
   // console.log(singleData)
   useEffect(() => {
     axios
-      .get(`http://localhost:3737/api/v1/services/${id}`)
+      .get(`https://career-maker-server.vercel.app/api/v1/services/${id}`)
       .then((res) => {
         setSingleData(res.data);
         setloading(false);
@@ -48,7 +48,7 @@ const SingleData = () => {
       sprice,
     };
     axios
-      .post("http://localhost:3737/api/v1/bookings", bookData)
+      .post("https://career-maker-server.vercel.app/api/v1/bookings", bookData)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -78,7 +78,9 @@ const SingleData = () => {
           </div>
           <div className="card-body">
             <h2 className="text-3xl font-bold">{singleData.sname}</h2>
-            <p className="text-lg font-semibold">Price : $ {singleData.price}</p>
+            <p className="text-lg font-semibold">
+              Price : $ {singleData.price}
+            </p>
             <p className="italic font-medium">{singleData.des}</p>
             <p className="font-medium text-[#4d4949]">
               Area : {singleData.area}
@@ -232,7 +234,7 @@ const SingleData = () => {
           </div>
         </div>
       </div>
-      <EmailMatchService singleData={singleData}/>
+      <EmailMatchService singleData={singleData} />
     </MaxWidth>
   );
 };

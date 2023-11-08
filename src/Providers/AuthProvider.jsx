@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
       if (currnUser) {
         axios
           .post(
-            "http://localhost:3737/api/v1/jwt",
+            "https://career-maker-server.vercel.app/api/v1/jwt",
             { email: uemail },
             { withCredentials: true }
           )
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
       } else {
         axios
           .post(
-            "http://localhost:3737/api/v1/logout",
+            "https://career-maker-server.vercel.app/api/v1/logout",
             { email: uemail },
             { withCredentials: true }
           )

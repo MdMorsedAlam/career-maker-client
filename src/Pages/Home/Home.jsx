@@ -12,7 +12,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("http://localhost:3737/api/v1/services")
+      .get("https://career-maker-server.vercel.app/api/v1/services")
       .then((res) => {
         setServices(res.data);
         setLoading(false);
@@ -41,7 +41,11 @@ const Home = () => {
                 className="card card-compact bg-base-100 shadow-xl"
               >
                 <figure className="h-96">
-                  <img className="w-full h-full object-cover" src={service.sphoto} alt={service.sphoto} />
+                  <img
+                    className="w-full h-full object-cover"
+                    src={service.sphoto}
+                    alt={service.sphoto}
+                  />
                 </figure>
                 <div className="card-body">
                   <h2 className="text-3xl font-bold">{service.sname}</h2>

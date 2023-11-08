@@ -10,9 +10,12 @@ const OthersBooks = () => {
   const [othersBooked, setothersBooked] = useState();
   useEffect(() => {
     axios
-      .get(`http://localhost:3737/api/v1/others-bookings?email=${user.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://career-maker-server.vercel.app/api/v1/others-bookings?email=${user.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         setothersBooked(res.data);
         setloading(false);
@@ -28,10 +31,12 @@ const OthersBooks = () => {
     return <OthersBookError />;
   }
 
-  const handelChange = (e, id) => {
-    const selectValue = e.target.value;
-    console.log(selectValue, id);
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const sValue = e.target.selectValue.value;
+    console.log(sValue);
   };
+
   return (
     <section className="mb-20">
       <h1 className="text-center font-bold text-accent text-4xl mb-4">
@@ -66,14 +71,19 @@ const OthersBooks = () => {
                 <td className="text-lg font-semibold">{book.uaddress}</td>
                 <td className="text-lg font-semibold">$ {book.sprice}</td>
                 <td className="text-lg font-semibold">
-                  <select
-                    onChange={() => handelChange}
-                    className="select select-accent max-w-xs"
-                  >
-                    <option value="Pending">Pending</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Completed">Completed</option>
-                  </select>
+                  <form onSubmit={handelSubmit}>
+                    <select
+                      name="selectValue"
+                      className="select select-accent max-w-xs mr-2"
+                    >
+                      <option value="Pending">Pending</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                    <button type="submit" className="btn btn-accent">
+                      Update
+                    </button>
+                  </form>
                 </td>
               </tr>
             ))}

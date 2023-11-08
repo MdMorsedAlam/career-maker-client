@@ -56,7 +56,9 @@ const route = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateService />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3737/api/v1/services/${params.id}`),
+          fetch(
+            `https://career-maker-server.vercel.app/api/v1/services/${params.id}`
+          ),
       },
       {
         path: "/login",

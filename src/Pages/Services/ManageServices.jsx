@@ -13,9 +13,12 @@ const ManageServices = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3737/api/v1/my-services?email=${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://career-maker-server.vercel.app/api/v1/my-services?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         setServices(res.data);
         setLoading(false);
@@ -39,7 +42,9 @@ const ManageServices = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .get(`http://localhost:3737/api/v1/my-services/${id}`)
+          .get(
+            `https://career-maker-server.vercel.app/api/v1/my-services/${id}`
+          )
           .then((res) => {
             if (res.data.deletedCount > 0) {
               Swal.fire({
