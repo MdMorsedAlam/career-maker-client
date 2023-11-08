@@ -67,18 +67,18 @@ const Services = () => {
                 className="card card-compact bg-base-100 shadow-xl"
               >
                 <div>
-                  <figure className="h-96">
+                  <figure className="h-[450px]">
                     <img
                       className="w-full object-cover rounded-lg h-full"
                       src={service.sphoto}
-                      alt="Shoes"
+                      alt={service.sphoto}
                     />
                   </figure>
                 </div>
                 <div className="card-body">
                   <h2 className="text-3xl font-bold">{service.sname}</h2>
                   <p className="text-lg font-semibold">
-                    Price : {service.price}
+                    Price : $ {service.price}
                   </p>
                   <p className="italic font-medium">
                     {service.des.length > 100
@@ -110,7 +110,7 @@ const Services = () => {
             ))}
           </div>
           <div className="flex justify-center">
-            {isShow ? (
+            {isShow &&services?.length>6 ? (
               <button
                 onClick={handelShow}
                 className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold"

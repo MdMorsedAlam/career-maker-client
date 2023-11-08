@@ -5,6 +5,7 @@ import Loading from "../../Components/Loading";
 import { MyContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import MaxWidth from "../../Components/MaxWidth";
+import EmailMatchService from "./EmailMatchService";
 
 const SingleData = () => {
   const { id } = useParams();
@@ -71,13 +72,13 @@ const SingleData = () => {
               <img
                 className="w-full rounded-lg h-full"
                 src={singleData.sphoto}
-                alt="Shoes"
+                alt={singleData.sphoto}
               />
             </figure>
           </div>
           <div className="card-body">
             <h2 className="text-3xl font-bold">{singleData.sname}</h2>
-            <p className="text-lg font-semibold">Price : {singleData.price}</p>
+            <p className="text-lg font-semibold">Price : $ {singleData.price}</p>
             <p className="italic font-medium">{singleData.des}</p>
             <p className="font-medium text-[#4d4949]">
               Area : {singleData.area}
@@ -231,6 +232,7 @@ const SingleData = () => {
           </div>
         </div>
       </div>
+      <EmailMatchService singleData={singleData}/>
     </MaxWidth>
   );
 };

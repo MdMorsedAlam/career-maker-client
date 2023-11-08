@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { MyContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import avatar from "../../assets/avatar.png";
 
 import Swal from "sweetalert2";
 
@@ -31,7 +32,7 @@ const Register = () => {
         .then((res) => {
           updateProfile(res.user, {
             displayName: name,
-            photoURL: url ? url : "avatar.png",
+            photoURL: url ? url : avatar,
           })
             .then(() => {
               logOut()

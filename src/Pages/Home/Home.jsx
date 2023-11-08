@@ -9,21 +9,21 @@ import ContactUs from "./ContactUs";
 
 const Home = () => {
   const [services, setServices] = useState();
-  const [loading,setLoading]=useState(true);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get("http://localhost:3737/api/v1/services")
       .then((res) => {
         setServices(res.data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
-      document.title = "Home || Local Tours and Guide";
+    document.title = "Home || Local Tours and Guide";
   }, []);
-  if(loading){
-   return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
   return (
     <div>
@@ -40,15 +40,19 @@ const Home = () => {
                 key={service._id}
                 className="card card-compact bg-base-100 shadow-xl"
               >
-                <figure>
-                  <img src={service.sphoto} alt="Shoes" />
+                <figure className="h-96">
+                  <img className="w-full h-full object-cover" src={service.sphoto} alt={service.sphoto} />
                 </figure>
                 <div className="card-body">
                   <h2 className="text-3xl font-bold">{service.sname}</h2>
                   <p className="text-lg font-semibold">
-                    Price : {service.price}
+                    Price : $ {service.price}
                   </p>
-                  <p className="italic font-medium">{service.des.length>100?service.des.slice(0,100):service.des}</p>
+                  <p className="italic font-medium">
+                    {service.des.length > 100
+                      ? service.des.slice(0, 100)
+                      : service.des}
+                  </p>
 
                   <div className="flex items-center gap-5">
                     <img
@@ -71,13 +75,17 @@ const Home = () => {
             ))}
           </div>
           <div className="flex justify-center">
-          <Link to='/services' className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold uppercase">Show All</Link>
+            <Link
+              to="/services"
+              className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold uppercase"
+            >
+              Show All
+            </Link>
           </div>
         </div>
-        <Team/>
-        <ContactUs/>
+        <Team />
+        <ContactUs />
       </MaxWidth>
-      
     </div>
   );
 };

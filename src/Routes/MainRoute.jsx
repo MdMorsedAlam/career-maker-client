@@ -48,9 +48,9 @@ const route = createBrowserRouter([
         element: <ManageServices />,
       },
       {
-        path:'/schedules',
-        element:<MySchedules/>,
-        errorElement:<MyBookError/>
+        path: "/schedules",
+        element: <MySchedules />,
+        errorElement: <MyBookError />,
       },
       {
         path: "/update/:id",

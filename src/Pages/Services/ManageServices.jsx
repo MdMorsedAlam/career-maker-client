@@ -21,7 +21,7 @@ const ManageServices = () => {
         setLoading(false);
       })
       .catch();
-      document.title = "My-Services || Local Tours and Guide";
+    document.title = "My-Services || Local Tours and Guide";
   }, [user]);
   if (loading) {
     return <Loading />;
@@ -102,13 +102,14 @@ const ManageServices = () => {
                           <img
                             className="w-full h-full "
                             src={service.sphoto}
+                            alt={service.sphoto}
                           />
                         </div>
                       </div>
                     </div>
                   </td>
                   <td className="text-lg font-semibold">{service.sname}</td>
-                  <td className="text-lg font-semibold">{service.price}</td>
+                  <td className="text-lg font-semibold">$ {service.price}</td>
                   <th>
                     <button
                       onClick={() => handelDelete(service._id)}
