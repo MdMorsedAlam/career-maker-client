@@ -48,6 +48,7 @@ const UpdateService = () => {
       })
       .catch();
   };
+  document.title = "Update-Service || Local Tours and Guide";
   return (
     <MaxWidth>
       <div className="min-h-screen py-10 bg-base-200">

@@ -46,6 +46,7 @@ const Login = () => {
         console.log(err.message);
       });
   };
+  document.title = "Login || Local Tours and Guide";
   return (
     <div className=" bg-current py-16">
       <div className="w-2/3 bg-gray-900 flex flex-col md:flex-row justify-between gap-10 items-center mx-auto p-4 rounded-md shadow sm:p-8 text-gray-100">

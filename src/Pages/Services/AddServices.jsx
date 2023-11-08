@@ -44,7 +44,7 @@ const AddServices = () => {
       })
       .catch();
   };
-
+  document.title = "Add-Services || Local Tours and Guide";
   return (
     <MaxWidth>
       <div className="min-h-screen py-10 bg-base-200">

@@ -13,7 +13,7 @@ const MyBooks = () => {
 
  useEffect(() => {
   axios
-    .get(`http://localhost:3737/api/v1/my-bookings?email=${user.email}`)
+    .get(`http://localhost:3737/api/v1/my-bookings?email=${user.email}`,{withCredentials:true})
     .then((res) => {
       setMyBooked(res.data);
       setloading(false);

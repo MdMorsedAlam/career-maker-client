@@ -4,6 +4,8 @@ import axios from "axios";
 import MaxWidth from "../../Components/MaxWidth";
 import { Link } from "react-router-dom";
 import Loading from "../../Components/Loading";
+import Team from "./Team";
+import ContactUs from "./ContactUs";
 
 const Home = () => {
   const [services, setServices] = useState();
@@ -18,6 +20,7 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
+      document.title = "Home || Local Tours and Guide";
   }, []);
   if(loading){
    return <Loading/>
@@ -31,7 +34,7 @@ const Home = () => {
           <h1 className="text-6xl text-center font-bold mb-10">
             Popular Services
           </h1>
-          <div className="grid grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {services?.slice(0, 4).map((service) => (
               <div
                 key={service._id}
@@ -71,7 +74,10 @@ const Home = () => {
           <Link to='/services' className="btn btn-neutral border-none hover:bg-[#425cecbd] bg-[#425CEC] mt-8 px-10 text-white font-semibold uppercase">Show All</Link>
           </div>
         </div>
+        <Team/>
+        <ContactUs/>
       </MaxWidth>
+      
     </div>
   );
 };

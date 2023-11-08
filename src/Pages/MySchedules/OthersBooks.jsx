@@ -10,7 +10,7 @@ const OthersBooks = () => {
  const [othersBooked, setothersBooked] = useState();
  useEffect(() => {
   axios
-    .get(`http://localhost:3737/api/v1/others-bookings?email=${user.email}`)
+    .get(`http://localhost:3737/api/v1/others-bookings?email=${user.email}`,{withCredentials:true})
     .then((res) => {
       setothersBooked(res.data);
       setloading(false);
@@ -24,6 +24,12 @@ if (loading) {
 }
 if(othersBooked?.length==0){
  return <OthersBookError/>
+}
+
+
+const handelChange=(e,id)=>{
+  const selectValue=e.target.value;
+  console.log(selectValue,id)
 }
  return (
   <section className="mb-20">
@@ -62,10 +68,10 @@ if(othersBooked?.length==0){
                    <td className="text-lg font-semibold">{book.uaddress}</td>
                    <td className="text-lg font-semibold">{book.sprice}</td>
                    <td className="text-lg font-semibold">
-                    <select className="select select-accent max-w-xs">
-                     <option value="">Pending</option>
-                     <option value="">In Progress</option>
-                     <option value="">Completed</option>
+                    <select onChange={()=>handelChange} className="select select-accent max-w-xs">
+                     <option value="Pending">Pending</option>
+                     <option value="In Progress">In Progress</option>
+                     <option value="Completed">Completed</option>
                     </select>
                     </td>
                    

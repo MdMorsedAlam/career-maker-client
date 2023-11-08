@@ -48,13 +48,14 @@ const AuthProvider = ({ children }) => {
           )
           .then()
           .catch();
-      }else{
+      } else {
         axios
           .post(
             "http://localhost:3737/api/v1/logout",
+            { email: uemail },
             { withCredentials: true }
           )
-          .then(res=>console.log(res.data));
+          .then((res) => console.log(res.data));
       }
     });
     return () => {

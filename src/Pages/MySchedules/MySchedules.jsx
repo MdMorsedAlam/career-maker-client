@@ -10,7 +10,7 @@ const MySchedules = () => {
   // console.log(othersBooked);
   // console.log(myBooked);
  
- 
+  document.title = "My-Schedules || Local Tours and Guide";
   return (
     <MaxWidth>
       <MyBooks/>

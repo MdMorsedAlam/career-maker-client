@@ -13,12 +13,15 @@ const ManageServices = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3737/api/v1/my-services?email=${user?.email}`)
+      .get(`http://localhost:3737/api/v1/my-services?email=${user?.email}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setServices(res.data);
         setLoading(false);
       })
       .catch();
+      document.title = "My-Services || Local Tours and Guide";
   }, [user]);
   if (loading) {
     return <Loading />;
@@ -61,17 +64,19 @@ const ManageServices = () => {
       }
     });
   };
-  if(services?.length===0){
+  if (services?.length === 0) {
     return (
       <MaxWidth>
-       <div className="my-10">
-       <h1 className="text-center font-bold text-accent text-4xl mb-4">
-                   My Services
-                 </h1>
-       <h1 className="text-6xl text-red-500 font-extrabold text-center">No Found Any Service!! <br /> Please Add Your Service</h1>
-      </div>
+        <div className="my-10">
+          <h1 className="text-center font-bold text-accent text-4xl mb-4">
+            My Services
+          </h1>
+          <h1 className="text-6xl text-red-500 font-extrabold text-center">
+            No Found Any Service!! <br /> Please Add Your Service
+          </h1>
+        </div>
       </MaxWidth>
-     );
+    );
   }
   return (
     <MaxWidth>

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { MyContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
-import profile from "../../../public/avatar.png";
+
 import Swal from "sweetalert2";
 
 const Register = () => {
@@ -31,7 +31,7 @@ const Register = () => {
         .then((res) => {
           updateProfile(res.user, {
             displayName: name,
-            photoURL: url ? url : profile,
+            photoURL: url ? url : "avatar.png",
           })
             .then(() => {
               logOut()
@@ -50,7 +50,7 @@ const Register = () => {
             })
             .catch();
         })
-        .catch(()=>{
+        .catch(() => {
           Swal.fire({
             title: "Opps!",
             text: "Already Created Account By This Email",
@@ -74,6 +74,7 @@ const Register = () => {
       })
       .catch();
   };
+  document.title = "Register || Local Tours and Guide";
   return (
     <div className=" bg-current py-16">
       <div className="w-2/3 bg-gray-900 flex flex-col md:flex-row md:justify-between md:gap-10 md:items-center mx-auto p-4 rounded-md shadow sm:p-8 text-gray-100">

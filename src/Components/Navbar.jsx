@@ -51,22 +51,25 @@ const Navbar = () => {
               <NavLink to="/services">Services</NavLink>
             </li>
 
-            <li tabIndex={0}>
-              <details>
-                <summary>Dashboard</summary>
-                <ul className="flex gap-3 mt-3 flex-col">
-                  <li>
-                    <NavLink to="/addservices">Add-Services</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/my-services">My-Services</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/schedules"> My-Schedules</NavLink>
-                  </li>
-                </ul>
-              </details>
-            </li>
+            {user && (
+              <li tabIndex={0}>
+                <details>
+                  <summary>Dashboard</summary>
+                  <ul className="flex gap-3 mt-3 flex-col">
+                    <li>
+                      <NavLink to="/addservices">Add-Services</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/my-services">My-Services</NavLink>
+                    </li>
+
+                    <li>
+                      <NavLink to="/schedules"> My-Schedules</NavLink>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            )}
           </ul>
         </div>
         <Link to="/" className="flex justify-center items-center">

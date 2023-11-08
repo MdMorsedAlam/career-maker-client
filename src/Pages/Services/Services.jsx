@@ -21,6 +21,7 @@ const Services = () => {
       .catch((err) => {
         console.log(err);
       });
+    document.title = "Services || Local Tours and Guide";
   }, []);
 
   const handelSearch = () => {
