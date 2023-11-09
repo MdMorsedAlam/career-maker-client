@@ -116,7 +116,7 @@ const SingleData = () => {
                     <h1 className="text-center font-semibold text-accent text-2xl mt-4">
                       Service Info
                     </h1>
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                       <div className="form-control w-full">
                         <label className="label">
                           <span className="label-text font-bold text-lg">
@@ -144,7 +144,7 @@ const SingleData = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                       <div className="form-control w-full">
                         <label className="label">
                           <span className="label-text font-bold text-lg">
@@ -175,7 +175,7 @@ const SingleData = () => {
                     <h1 className="text-center font-semibold text-accent text-2xl mt-4">
                       Coustomer Info
                     </h1>
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                       <div className="form-control w-full">
                         <label className="label">
                           <span className="label-text font-bold text-lg">
