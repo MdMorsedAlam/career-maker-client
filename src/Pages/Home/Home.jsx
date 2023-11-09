@@ -1,31 +1,46 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+
+// import axios from "axios";
 import Banner from "../../Components/Banner";
-import axios from "axios";
 import MaxWidth from "../../Components/MaxWidth";
 import { Link } from "react-router-dom";
 import Loading from "../../Components/Loading";
 import Team from "./Team";
 import ContactUs from "./ContactUs";
 import ClientSays from "./ClientSays";
+import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
-  const [services, setServices] = useState();
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    axios
-      .get("https://career-maker-server.vercel.app/api/v1/services")
-      .then((res) => {
-        setServices(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    document.title = "Home || Local Tours and Guide";
-  }, []);
-  if (loading) {
+  // const [services, setServices] = useState();
+  // const [loading, setLoading] = useState(true);
+
+  const { isLoading, data } = useQuery({
+    queryKey: ["mydata"],
+    queryFn: () =>
+      fetch("https://career-maker-server.vercel.app/api/v1/services").then(
+        (res) => res.json()
+      ),
+  });
+  console.log(data);
+  if (isLoading) {
     return <Loading />;
   }
+  // useEffect(() => {
+  //   axios
+  //     .get("https://career-maker-server.vercel.app/api/v1/services")
+  //     .then((res) => {
+  //       setServices(res.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+
+  // }, []);
+  // if (loading) {
+  //   return <Loading />;
+  // }
+  document.title = "Home || Local Tours and Guide";
   return (
     <div>
       <Banner />
@@ -36,7 +51,7 @@ const Home = () => {
             Popular Services
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {services?.slice(0, 4).map((service) => (
+            {data?.slice(0, 4).map((service) => (
               <div
                 key={service._id}
                 data-aos="zoom-out-up"
@@ -89,7 +104,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <ClientSays/>
+        <ClientSays />
         <Team />
         <ContactUs />
       </MaxWidth>
