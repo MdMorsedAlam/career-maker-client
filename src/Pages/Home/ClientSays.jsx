@@ -9,7 +9,7 @@ const ClientSays = () => {
         <h1 className="text-5xl font-bold text-center">Client Says About US</h1>
       </div>
       <div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
-        <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+        <div data-aos="zoom-in-down" className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-[#425cecbd] text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
@@ -28,7 +28,7 @@ Your Local Tours and Guide Service was exceptional. The knowledgeable and friend
             <p className="text-sm uppercase">Sreepur,Gazipur</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+        <div data-aos="zoom-in-up" className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-accent text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
@@ -46,7 +46,7 @@ Your Local Tours and Guide Service was exceptional. The knowledgeable and friend
             <p className="text-sm uppercase">Tongi,Gazipur</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+        <div data-aos="fade-right" className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-accent text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
@@ -64,7 +64,7 @@ Your Local Tours and Guide Service was exceptional. The knowledgeable and friend
             <p className="text-sm uppercase">Gazipur,Dhaka</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+        <div data-aos="fade-left" className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
           <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
             <FaQuoteLeft className="text-[#425cecbd] text-2xl" />
             <p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">

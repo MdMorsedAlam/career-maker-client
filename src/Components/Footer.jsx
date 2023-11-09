@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import MaxWidth from "./MaxWidth";
 import { BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
-import logo from '../assets/logo.jpg'
+import Lottie from "lottie-react";
+import logo from '../../public/weblogo.json'
 const Footer = () => {
   return (
     <div>
@@ -10,8 +11,8 @@ const Footer = () => {
   <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 		<div className="lg:w-1/3">
 			<Link to='/' rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
-				<div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-[#425CEC]">
-					<img className=" rounded-3xl" src={logo} alt="" />
+				<div className="flex items-center justify-center w-16 h-16 rounded-full dark:bg-[#425CEC]">
+				<Lottie animationData={logo}/>
 				</div>
 				<span className="self-center text-3xl font-bold">Local Tours and Guide</span>
         

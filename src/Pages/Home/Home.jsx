@@ -39,6 +39,7 @@ const Home = () => {
             {services?.slice(0, 4).map((service) => (
               <div
                 key={service._id}
+                data-aos="zoom-out-up"
                 className="card card-compact bg-base-100 shadow-xl"
               >
                 <figure className="h-96">

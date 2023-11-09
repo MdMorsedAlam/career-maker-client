@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MyContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import logo from '../assets/logo.jpg'
 import MaxWidth from "./MaxWidth";
 import avatar from '../assets/avatar.png'
+import Lottie from "lottie-react";
+import logo from '../../public/weblogo.json'
 
 const Navbar = () => {
   const { user, logOut } = useContext(MyContext);
@@ -78,7 +79,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="flex justify-center items-center">
-          <img className="w-16 hidden md:block h-12" src={logo} alt="" />
+          {/* <img className="w-16 hidden md:block h-12" src={logo} alt="" /> */}<Lottie className="w-16 h-12" animationData={logo}/>
           <p className="md:text-2xl text-md font-bold text-[#425CEC]">
             Local Tours and Guide
           </p>

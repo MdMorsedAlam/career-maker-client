@@ -1,9 +1,11 @@
-
+import Lottie from "lottie-react";
+import loading from '../../public/loading.json'
 
 const Loading = () => {
  return (
-  <div className="flex justify-center items-center">
-   <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+  <div className="flex justify-center items-center h-[70vh]">
+   <Lottie className="w-full h-full" animationData={loading}/>
+   
   </div>
  );
 };
