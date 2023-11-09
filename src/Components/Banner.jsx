@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MaxWidth from "./MaxWidth";
 // import { Typewriter } from 'react-simple-typewriter'
 // import { useTypewriter } from 'react-simple-typewriter'
@@ -25,9 +26,12 @@ const Banner = () => {
                 revealing hidden gems and stories, <br /> enhancing the travel
                 experience.
               </p>
-              <button className="btn bg-[#425CEC] hover:text-white font-semibold border-none hover:bg-[#3046c4]">
+              <Link
+                to="/services"
+                className="btn bg-[#425CEC] hover:text-white font-semibold border-none hover:bg-[#3046c4]"
+              >
                 Book Now
-              </button>
+              </Link>
             </div>
           </div>
         </MaxWidth>

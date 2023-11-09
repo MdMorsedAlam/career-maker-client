@@ -77,7 +77,7 @@ const ManageServices = () => {
             My Services
           </h1>
           <h1 className="text-6xl text-red-500 font-extrabold text-center">
-            No Found Any Service!! <br /> Please Add Your Service
+            Not Found Any Service!! <br /> Please Add Your Service
           </h1>
         </div>
       </MaxWidth>
