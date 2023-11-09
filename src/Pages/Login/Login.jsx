@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MyContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(MyContext);
   const navigate = useNavigate();
+  const location=useLocation()
+  console.log(location.state)
   const handelLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,7 +23,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500
         });
-        navigate("/");
+        navigate(location?.state?location.state:"/");
       })
       .catch(() => {
         Swal.fire({

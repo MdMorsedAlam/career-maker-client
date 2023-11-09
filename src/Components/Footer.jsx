@@ -20,44 +20,43 @@ const Footer = () => {
 		</div>
 		<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
 			<div className="space-y-3">
-				<h3 className="tracki uppercase dark:text-gray-50">Product</h3>
+				<h3 className="tracki uppercase dark:text-gray-50">Address</h3>
+				<ul className="space-y-1">
+				<li>
+						<p className="text-md font-medium italic">Sreepur,Gazipur</p>
+					</li>
+					<li>
+						<p className="text-md font-medium italic">Dhaka,Bangladesh</p>
+					</li>
+					
+					
+				</ul>
+			</div>
+			<div className="space-y-3">
+				<h3 className="tracki uppercase dark:text-gray-50">Contact</h3>
 				<ul className="space-y-1">
 					<li>
-						<a rel="noopener noreferrer" href="#">Features</a>
+						<p  className="text-md font-medium italic">+8801234567890</p>
 					</li>
 					<li>
-						<a rel="noopener noreferrer" href="#">Integrations</a>
+						<p className="text-md font-medium italic">example@gmail.com</p>
 					</li>
 					<li>
-						<a rel="noopener noreferrer" href="#">Pricing</a>
+						<p className="text-md font-medium italic">example@yahoo.com</p>
+					</li>
+				</ul>
+			</div>
+			<div className="space-y-3">
+				<h3 className="uppercase dark:text-gray-50">Terms & Conditions</h3>
+				<ul className="space-y-1">
+					<li>
+						<a rel="noopener noreferrer" href="#">Plicy</a>
+					</li>
+					<li>
+						<a rel="noopener noreferrer" href="#">Support</a>
 					</li>
 					<li>
 						<a rel="noopener noreferrer" href="#">FAQ</a>
-					</li>
-				</ul>
-			</div>
-			<div className="space-y-3">
-				<h3 className="tracki uppercase dark:text-gray-50">Company</h3>
-				<ul className="space-y-1">
-					<li>
-						<a rel="noopener noreferrer" href="#">Privacy</a>
-					</li>
-					<li>
-						<a rel="noopener noreferrer" href="#">Terms of Service</a>
-					</li>
-				</ul>
-			</div>
-			<div className="space-y-3">
-				<h3 className="uppercase dark:text-gray-50">Developers</h3>
-				<ul className="space-y-1">
-					<li>
-						<a rel="noopener noreferrer" href="#">Public API</a>
-					</li>
-					<li>
-						<a rel="noopener noreferrer" href="#">Documentation</a>
-					</li>
-					<li>
-						<a rel="noopener noreferrer" href="#">Guides</a>
 					</li>
 				</ul>
 			</div>
