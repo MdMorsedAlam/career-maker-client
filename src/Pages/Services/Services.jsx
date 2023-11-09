@@ -26,14 +26,18 @@ const Services = () => {
   }, []);
 
   const handelSearch = () => {
-    const filterData = services.filter(
-      (service) => service.sname === inptValue
-    );
-    if (filterData?.length == 0) {
-      setNoData(true);
-    }
+    if (inptValue === "") {
+      setServices(services);
+    } else {
+      const filterData = services.filter(
+        (service) => service.sname.toLowerCase() === inptValue.toLowerCase()
+      );
+      if (filterData?.length == 0) {
+        setNoData(true);
+      }
 
-    setServices(filterData);
+      setServices(filterData);
+    }
   };
   const handelShow = () => {
     setSliceNum(services.length);

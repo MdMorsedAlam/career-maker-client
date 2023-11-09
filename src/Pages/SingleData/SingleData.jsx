@@ -20,15 +20,13 @@ const SingleData = () => {
         setSingleData(res.data);
         setloading(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch();
   }, [id]);
   if (loading) {
     return <Loading />;
   }
 
-  let count=0;
+
 
   const handelBooking = (e) => {
     
@@ -55,9 +53,6 @@ const SingleData = () => {
       .post("https://career-maker-server.vercel.app/api/v1/bookings", bookData)
       .then((res) => {
         if (res.data.insertedId) {
-          count++
-          axios.patch('/api/v1/set-count-book',{sortcount:count})
-
           Swal.fire({
             position: "top-end",
             icon: "success",
