@@ -7,6 +7,8 @@ import ContactUs from "./ContactUs";
 import ClientSays from "./ClientSays";
 import { useQuery } from "@tanstack/react-query";
 import ContentLoader from "react-content-loader";
+import { motion } from "framer-motion";
+
 
 const Home = () => {
   const { isLoading, data } = useQuery({
@@ -43,9 +45,11 @@ const Home = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {data?.slice(0, 4).map((service) => (
-                <div
+                <motion.div
                   key={service._id}
                   data-aos="zoom-out-up"
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.5 }}
                   className="card card-compact bg-base-100 shadow-xl"
                 >
                   <figure className="h-96">
@@ -83,7 +87,7 @@ const Home = () => {
                       </Link>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
