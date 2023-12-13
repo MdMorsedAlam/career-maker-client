@@ -13,6 +13,7 @@ import ManageServices from "../Pages/Services/ManageServices";
 import UpdateService from "../Pages/Services/UpdateService";
 import MySchedules from "../Pages/MySchedules/MySchedules";
 import MyBookError from "../Pages/MySchedules/MyBookError";
+
 const route = createBrowserRouter([
   {
     path: "/",
@@ -45,16 +46,28 @@ const route = createBrowserRouter([
       },
       {
         path: "/my-services",
-        element: <PrivateRoute><ManageServices /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <ManageServices />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/schedules",
-        element: <PrivateRoute><MySchedules /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MySchedules />
+          </PrivateRoute>
+        ),
         errorElement: <MyBookError />,
       },
       {
         path: "/update/:id",
-        element: <PrivateRoute><UpdateService /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <UpdateService />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://career-maker-server.vercel.app/api/v1/services/${params.id}`
@@ -71,7 +84,6 @@ const route = createBrowserRouter([
     ],
   },
 ]);
-
 const MainRoute = ({ children }) => {
   return <RouterProvider router={route}>{children}</RouterProvider>;
 };
